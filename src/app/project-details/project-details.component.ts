@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-project-details',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  constructor() { }
+  // @Input() addProject:string;
+  @ViewChildren('user') users: ElementRef;
+  test: string="red";
+
+  constructor(private eleRef: ElementRef) { }
 
   ngOnInit() {
+  }
+
+  add() {
+    this.test = this.users.nativeElement.value;
   }
 
 }

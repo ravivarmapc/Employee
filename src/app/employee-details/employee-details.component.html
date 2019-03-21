@@ -1,1 +1,40 @@
-<main></main>
+<main class="emp-wrapper">
+
+<div class="py-4 text-center">
+    <label class="mr-3">Employee Id:</label>
+    <input list="empNumber" name="empNumber" placeholder="Enter your Id" (change)="showemployee($event)" class="px-2">
+    <datalist id="empNumber">
+        <option *ngFor="let emp of empDetails; index as i" value="{{emp.id}}"></option>
+    </datalist>
+</div>
+<div class="py-4 text-center">
+    <button class="btn btn-primary" routerLink="/project-details">Add Project</button>
+</div>
+
+
+<div *ngIf="showEmp" class="container">
+    <h4>Employee Details</h4>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <th>Name</th>
+            <th>Company Name</th>
+            <th>Role</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td >{{selectedEmp.name }} </td>
+                <td>{{selectedEmp.companyName}}</td>
+                <td>{{selectedEmp.role }} </td>
+                <td><a href="javascript:void(0)" (click)="showDetails()">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="noList" class="container text-center">
+    <h2>No Records Found</h2>
+</div>
+<app-edit-profile *ngIf="showEmpDetails" [empD]="selectedEmp" (saveDetails)="saveUpdatedDetails($event)"></app-edit-profile> 
+<!--  -->
+
+</main>
