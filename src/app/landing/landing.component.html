@@ -1,6 +1,14 @@
 <main class="home-bg">
-<h1 class="mb-3">Welcome to Employee Profiles</h1>
+<h1>Hi {{currentUser.firstName}}!</h1>
+<h1 class="mb-3">Welcome to tavant Employee Profiles</h1>
 <div>
     <button class="btn btn-primary" routerLink="/employee-details" >Let's Go</button>
 </div>
+<!-- <h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul> -->
 </main>
